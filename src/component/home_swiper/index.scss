@@ -1,0 +1,14 @@
+.home-swiper-container {
+  flex: 1;
+  padding: 30px 15px 0 15px;
+  .swiper_wrapper_container {
+    width: 900px;
+    .item {
+      width: 900px;
+      height: 450px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

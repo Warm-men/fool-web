@@ -1,25 +1,7 @@
 module.exports = {
   proxy: {
-    '/develop/*': {
-      target: 'https://dev.tengmoney.com',
-      secure: false,
-      changeOrigin: true,
-      pathRewirete: {
-        '/develop': ''
-      }
-    },
-    '/test': {
-      target: 'https://test.tengmoney.com',
-      secure: false,
-      changeOrigin: true
-    },
-    '/www': {
-      target: 'https://www.tengmoney.com',
-      secure: false,
-      changeOrigin: true
-    },
-    '/app/*': {
-      target: 'https://dev.tengmoney.com',
+    '/web': {
+      target: 'http://203.195.237.61:8099/',
       changeOrigin: true,
       secure: false
     }
