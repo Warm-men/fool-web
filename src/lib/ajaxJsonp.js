@@ -1,6 +1,6 @@
 import { ajax } from 'jquery'
 import * as storage from './storage.js'
-import wxLogin from './wx_login'
+// import wxLogin from './wx_login'
 
 const handleError = (error, res) => {
   error && error(res)
@@ -28,22 +28,20 @@ const handleData = (data, isNotParams) => {
 const fetchJsonp = formData => {
   let { url, data, success, error, isNotParams, method } = formData
   ajax({
-    url: global.apiUrl + url,
+    url: 'http://203.195.237.61:8099/web/api/getCompanyInfo',
     data: handleData(data, isNotParams),
     type: method ? method : 'GET',
     dataType: 'jsonp', //指定服务器返回的数据类型
     success: data => {
       if (data.code === 1005) {
         storage.remove('refresh_token', localStorage)
-        wxLogin(() => {
-          fetchJsonp(formData)
-        })
+        // wxLogin(() => {
+        //   fetchJsonp(formData)
+        // })
         handleError(error, data)
         return null
       }
-      data.code !== global.apiSuccess
-        ? handleError(error, data)
-        : handleSuccess(success, data)
+      data.code !== global.apiSuccess ? handleError(error, data) : handleSuccess(success, data)
     },
     error: data => {
       handleError(error, data)

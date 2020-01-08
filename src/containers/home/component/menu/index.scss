@@ -1,0 +1,54 @@
+@import 'src/styles/flex_pt.scss';
+.menu-and-navigation {
+  min-width: 250px;
+  margin-right: 20px;
+  // background-color: #fff;
+  .main-title-view {
+    height: 100px;
+    background: linear-gradient(to right, #f78ca0 0, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .english-title {
+      font-family: Pacifico, Lato, 'PingFang SC', 'Microsoft YaHei', Tahoma;
+      font-weight: 400;
+      font-size: 20px;
+      color: #fff;
+      line-height: 50px;
+    }
+    .chn-title {
+      color: #fff;
+      font-size: 13px;
+    }
+  }
+  .menu-tab-view {
+    padding: 20px 0;
+    background-color: #fff;
+    .tab-item {
+      height: 36px;
+      line-height: 36px;
+      padding-left: 24px;
+      position: relative;
+      margin-top: 1px;
+      font-size: 13px;
+      color: #111;
+      .icon {
+        margin-right: 10px;
+      }
+      .circle {
+        position: absolute;
+        right: 16px;
+        line-height: 32px;
+        color: #bbb;
+      }
+      &:hover {
+        background-color: #f5f7f9;
+        cursor: pointer;
+      }
+      &.active {
+        background-color: #f5f7f9;
+      }
+    }
+  }
+}

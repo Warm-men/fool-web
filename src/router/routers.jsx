@@ -8,12 +8,7 @@ const browserHistory = history.createBrowserHistory()
 
 function RenderRouters(route, k) {
   return (
-    <Route
-      key={k}
-      exact
-      path={route.path}
-      component={props => <route.component {...props} />}
-    >
+    <Route key={k} exact path={route.path} component={props => <route.component {...props} />}>
       {_.map(route.routers, (v, key) => RenderRouters(v, key))}
     </Route>
   )
@@ -21,7 +16,7 @@ function RenderRouters(route, k) {
 
 export default function Routers() {
   return (
-    <Suspense fallback={<div>Loding...</div>}>
+    <Suspense fallback={null}>
       <Router history={browserHistory}>
         <Switch>
           {_.map(routes, (route, k) => RenderRouters(route, k))}

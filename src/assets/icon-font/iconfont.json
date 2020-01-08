@@ -1,0 +1,37 @@
+{
+  "id": "1580101",
+  "name": "fool-web",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "web icon ",
+  "glyphs": [
+    {
+      "icon_id": "925441",
+      "name": "标签",
+      "font_class": "biaoqian",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "929458",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e734",
+      "unicode_decimal": 59188
+    },
+    {
+      "icon_id": "1013076",
+      "name": "人",
+      "font_class": "wo",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "5327433",
+      "name": "档案",
+      "font_class": "dangan",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    }
+  ]
+}

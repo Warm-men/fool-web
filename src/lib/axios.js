@@ -48,18 +48,9 @@ axios.interceptors.response.use(
     //   // throw后就会走到catch
     //   throw response.data
     // }
-    if (
-      response.data.ret === 1000001 &&
-      !sessionStorage.getItem('againAuthority')
-    ) {
-      sessionStorage.setItem('againAuthority', 1)
-      window.location.reload()
-    } else {
-      return response.data
-    }
+    return response.data
   },
   error => {
-    // message.error('后台接口报错')
     if (error && error.response) {
       switch (error.response.status) {
         case 400:
@@ -99,24 +90,16 @@ axios.interceptors.response.use(
           error.message = `连接出错(${error.response.status})!`
       }
     } else {
-      // error.message = '连接服务器失败!'
+      error.message = '连接服务器失败!'
     }
-    // Toast.hide();
-    // Toast.info(error.message, 2);
+    Toast.hide()
+    Toast.info(error.message, 2)
     return Promise.reject(error)
   }
 )
 
 const ajaxs = (option = {}) => {
-  const {
-    url = '',
-    params = {},
-    methods = 'post',
-    isJson = true,
-    exception = false
-  } = option
-  console.log(url)
-
+  const { url = '', params = {}, methods = 'post', isJson = true, exception = false } = option
   return new Promise((resolve, reject) => {
     let op = {
       url: methods !== 'post' ? url + `?${qs.stringify(params)}` : url,
@@ -135,12 +118,12 @@ const ajaxs = (option = {}) => {
     axios(op).then(
       res => {
         if (res) {
-          const { ret, retmsg = '', retdata = {} } = res
-          if (ret !== 0) {
+          const { code, msg = '', data = {} } = res
+          if (code !== 0) {
             Toast.hide()
-            Toast.info(retmsg)
+            Toast.info(msg)
           }
-          resolve(retdata)
+          resolve(data)
         }
       },
       err => {
@@ -149,6 +132,7 @@ const ajaxs = (option = {}) => {
         //   Toast.hide()
         //   Toast.info(err.message)
         // }
+        console.log(err)
         reject(err)
       }
     )

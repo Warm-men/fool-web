@@ -1,4 +1,22 @@
 @import 'src/styles/flex_pt.scss';
-.activities_manage_container {
+.home_container {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f7f9;
   min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 2px;
+  .headband {
+    height: 2px;
+    background: linear-gradient(to right, #f78ca0 0, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    position: absolute;
+    width: 100vw;
+    top: 0;
+  }
+  .container-view {
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+  }
 }
