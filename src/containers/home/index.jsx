@@ -12,7 +12,6 @@ export default class Home extends Component {
       menuType: 'home'
     }
   }
-  // componentDidMount() {}
 
   updateMenu = menuType => {
     this.setState({ menuType })
